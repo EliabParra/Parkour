@@ -4,7 +4,7 @@ from ursina.shaders import lit_with_shadows_shader
 
 app = Ursina(borderless=False)
 random.seed(0)
-window.size=(1600,800)
+window.size=(1000,600)
 Entity.default_shader = lit_with_shadows_shader
 
 player = FirstPersonController(collider = 'box')
@@ -25,6 +25,7 @@ class Cubo(Entity):
         
 Cubo(position=(0,1,0))
 Cubo(position=(64,1,64))
+Cubo(position=(-64,1,-64))
 
 player.position = Vec3(0,2,0)
 
@@ -37,6 +38,8 @@ for z in range(47):
     if z == 46:
         cubo.color = color.green
         meta1 = cubo
+
+    # cubo = Cubo(position=(-64,1,z))
         
 for y in range(40):
     cubo = Cubo(position=(random.randint(63,66),(y+1)*1.2,random.randint(62,65)))
@@ -50,6 +53,10 @@ for x in range(40):
         cubo.color = color.green
         meta2 = cubo
 
+
+for x in range(40):
+    cubo = Cubo(position=((x-56)*1.1,random.randint(1,4),))
+
 ground = Entity(
     model = 'plane',
     collider = 'box',
@@ -60,7 +67,7 @@ ground.position = Vec3(0,-20,0)
 
 def update():
     if(player.position.y <= -10):
-        player.position = Vec3(64,3,64)
+        player.position = Vec3(-64,3,-64)
     if player.intersects(meta1):
         player.position = Vec3(64,3,64)
     if player.intersects(meta2):
