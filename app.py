@@ -32,6 +32,12 @@ player.position = Vec3(0,2,0)
 def input(key):
     if key == 'escape':
         quit()
+    if key == '`':
+        mouse.locked = False
+        mouse.visible = True
+    if key == 'control':
+        mouse.locked = True
+        mouse.visible = False
         
 for z in range(47):
     cubo = Cubo(position=(random.randint(-2,2),random.randint(-1,3),z+2))
