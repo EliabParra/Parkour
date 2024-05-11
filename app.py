@@ -4,7 +4,7 @@ from ursina.shaders import lit_with_shadows_shader
 
 app = Ursina(borderless=False)
 random.seed(0)
-window.size=(1000,600)
+window.size=(1600,800)
 Entity.default_shader = lit_with_shadows_shader
 
 player = FirstPersonController(collider = 'box')
@@ -38,14 +38,12 @@ def input(key):
     if key == 'control':
         mouse.locked = True
         mouse.visible = False
-        
+
 for z in range(47):
     cubo = Cubo(position=(random.randint(-2,2),random.randint(-1,3),z+2))
     if z == 46:
         cubo.color = color.green
         meta1 = cubo
-
-    # cubo = Cubo(position=(-64,1,z))
         
 for y in range(40):
     cubo = Cubo(position=(random.randint(63,66),(y+1)*1.2,random.randint(62,65)))
