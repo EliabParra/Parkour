@@ -14,6 +14,7 @@ player = FirstPersonController(collider = 'box')
 player.cursor.color = color.white
 player.cursor.scale = .0065
 player.position = Vec3(0,2,0)
+
 class Cubo(Entity):
     def __init__(self, position=(0,0,0)):
         super().__init__(
