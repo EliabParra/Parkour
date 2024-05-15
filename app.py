@@ -105,12 +105,8 @@ def update():
         player.position = Vec3(0,3,0)
     if player.intersects(meta1):
         player.position = Vec3(64,3,64)
-        if(player.position.y <= -10):
-            player.position = Vec3(64,3,64)
     if player.intersects(meta2):
         player.position = Vec3(-58,106,-60)
-        if(player.position.y <= -10):
-            player.position = Vec3(0,3,0)
     if player.intersects(wall):
         player.position = Vec3(-58,106,-60)
     if player.intersects(meta3):
